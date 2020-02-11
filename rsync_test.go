@@ -533,6 +533,13 @@ func TestParseArguments(t *testing.T) {
 		assert.Contains(t, args, "progress2")
 	})
 
+	t.Run("--list-only", func(t *testing.T) {
+		args := getArguments(RsyncOptions{
+			ListOnly: true,
+		})
+		assert.Contains(t, args, "--list-only")
+	})
+
 	t.Run("--ipv4", func(t *testing.T) {
 		args := getArguments(RsyncOptions{
 			IPv4: true,

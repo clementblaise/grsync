@@ -170,6 +170,8 @@ type RsyncOptions struct {
 	Progress bool
 	// Info
 	Info string
+	// List Only
+	ListOnly bool
 
 	// ipv4
 	IPv4 bool
@@ -522,6 +524,10 @@ func getArguments(options RsyncOptions) []string {
 
 	if options.Info != "" {
 		arguments = append(arguments, "--info", options.Info)
+	}
+
+	if options.ListOnly {
+		arguments = append(arguments, "--list-only")
 	}
 
 	return arguments
